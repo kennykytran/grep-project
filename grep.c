@@ -16,7 +16,7 @@ int main(int argc, const char *argv[]) {
 void quit(int n) { if (vflag && fchange && dol!=zero) {  fchange = 0;  error(Q);  }  unlink(tfname); exit(0); }
 
 void commands(void) {//the longest funtion
-	unsigned int *a1;
+unsigned int *a1;
 	int c, temp;//variable tweaked
 	char lastsep;
 	for (;;) {
@@ -37,8 +37,15 @@ void commands(void) {//the longest funtion
 	else given = 1;
 	if (addr1==0) addr1 = addr2;
 	switch(c) {
-	case 'P': //prints
+	case 'g': //RETURNS A LINE OF A CERTAIN NUMBER
+		global(1); 	continue;
+	case 'P': //PRINTS
 		newline(); print(); continue;
+	case 'v'://PRINT OUT LINES THAT DON'T MATCH THE PATTERN
+		global(0);
+		continue;
+	case '=': //PRINTS NUMBER OF LINES IN A FILE
+		setwide();	squeeze(0);	newline(); count = addr2 - zero; putd(); putchar('\n'); continue;
 	case EOF: return;}
 	error(Q);
 	}
