@@ -4,6 +4,7 @@
 #include <setjmp.h>
 #include <curses.h>
 #include <string.h>
+#include <regex.h>
 
 
 /* make BLKSIZE and LBSIZE 512 for smaller machines */
